@@ -1,0 +1,19 @@
+.footer a {
+    font-family: monospace;
+    color: #69788d;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 5px;
+  }
+  @media (max-width: 992px) {
+    .footer a {
+      font-family: monospace;
+      color: #69788d;
+      position: initial;
+      right: 0;
+      left: 0;
+      bottom: 5px;
+    }
+  }
+  
