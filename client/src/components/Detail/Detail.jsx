@@ -35,16 +35,16 @@ function Detail() {
           <img src={breedDetail.image} alt={breedDetail.name} width="700" />
           <div className={styles.foot}>
             <p>
-              <span>Height:</span> {breedDetail.height} cm
+              <span>Altura:</span> {breedDetail.height} cm
             </p>
             <p>
-              <span>Weight:</span> {breedDetail.weight} kg
+              <span>Peso:</span> {breedDetail.weight} kg
             </p>
             <p>
-              <span>Temperaments:</span> {breedDetail.temperament}
+              <span>Temperamentos:</span> {breedDetail.temperament}
             </p>
             <p>
-              <span>Life Span:</span> {breedDetail.life_span}
+              <span>Esperanza de vida:</span> {breedDetail.life_span}
             </p>
           </div>
         </div>

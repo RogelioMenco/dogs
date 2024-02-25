@@ -3,7 +3,7 @@ function Footer() {
   return (
     <span className={styles.footer}>
       <a href="https://github.com/rogeliomenco">
-        {"<"}Developed by Rogelio Menco/{">"}
+        {"<"}Desarrollado por Rogelio Menco/{">"}
       </a>
     </span>
   );

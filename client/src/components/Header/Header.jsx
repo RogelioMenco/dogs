@@ -8,7 +8,7 @@ export function Header() {
         <span className={styles.title}>Dogs</span>
       </Link>
       <Link to="/home">
-        <button className={styles.button}>Back to Home</button>
+        <button className={styles.button}>De vuelta a casa</button>
       </Link>
     </div>
   );

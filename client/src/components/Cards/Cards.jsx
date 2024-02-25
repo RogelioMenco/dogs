@@ -51,7 +51,7 @@ function Cards() {
   if (breeds[0] === false) {
     return (
       <>
-        <h1>Breed not found</h1>
+        <h1>Raza no encontrada</h1>
         <img src={saddog} alt="sad dog" />
         <Footer />
       </>
@@ -59,7 +59,7 @@ function Cards() {
   } else if (breeds[0] === "db empty") {
     return (
       <>
-        <h1>Database empty!</h1>
+        <h1>Base de datos vacia!</h1>
         <img src={saddog} alt="sad dog" />
         <Footer />
       </>

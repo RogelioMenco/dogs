@@ -4,7 +4,7 @@ import loadingicon from "../../images/loading.gif";
 function Loading() {
   return (
     <>
-      <h1 className={styles.title}>Loading...</h1>
+      <h1 className={styles.title}>Cargando...</h1>
       <img
         className={styles.loadingicon}
         src={loadingicon}

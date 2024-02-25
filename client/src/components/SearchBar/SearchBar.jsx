@@ -66,7 +66,7 @@ function SearchBar({ weightAlpha, search, filterTemp, filterOrigin }) {
           &nbsp;
           <div>
             &nbsp;
-            <span> Weight </span>
+            <span> Peso </span>
             <label className={styles.switch} htmlFor="switchweight">
               <input
                 type="checkbox"
@@ -90,7 +90,7 @@ function SearchBar({ weightAlpha, search, filterTemp, filterOrigin }) {
             id="temps"
             onChange={handleChangeFilterTemp}
           >
-            <option value="ALL">All Temperaments</option>
+            <option value="ALL">Todos los temperamentos</option>
             {temperaments.map((e) => (
               <option value={e.name} key={e.id}>
                 {e.name}
@@ -99,16 +99,16 @@ function SearchBar({ weightAlpha, search, filterTemp, filterOrigin }) {
           </select>
           &nbsp;
           <label htmlFor="origin">
-            <span className={styles.origin}>Origin: </span>
+            <span className={styles.origin}>Origen: </span>
             <select
               className={styles.select}
               name="origin"
               id="origin"
               onChange={handleChangeOrigin}
             >
-              <option value="ALL">DB & API</option>
-              <option value="db">Only DB</option>
-              <option value="api">Only API</option>
+              <option value="ALL">DB y API</option>
+              <option value="db">Solo DB</option>
+              <option value="api">Sólo API</option>
             </select>
           </label>
         </div>
@@ -120,7 +120,7 @@ function SearchBar({ weightAlpha, search, filterTemp, filterOrigin }) {
           className={styles.search}
           onChange={handleChangeSearch}
           type="text"
-          placeholder="Search a breed!"
+          placeholder="Buscar una raza!"
         />
         &nbsp;
       </div>
