@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getBreeds, getTemps } from "../../actions/index";
-import Card from "../Card/Card.jsx";
-import Footer from "../Footer/Footer.jsx";
-import styles from "./Cards.module.css";
-import Loading from "../Loading/Loading.jsx";
-import saddog from "../../images/sad.png";
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getBreeds, getTemps } from '../../actions/index';
+import Card from '../Card/Card.jsx';
+import Footer from '../Footer/Footer.jsx';
+import styles from './Cards.module.css';
+import Loading from '../Loading/Loading.jsx';
+import saddog from '../../images/sad.png';
 
 function Cards() {
   const dispatch = useDispatch();
@@ -13,16 +13,16 @@ function Cards() {
   const [currentPage, setCurrentPage] = useState(0);
 
   const breeds = useSelector((state) =>
-    state.breedsToFilter.slice(currentPage, currentPage + 8)
+    state.breedsToFilter.slice(currentPage, currentPage + 8),
   );
   const totalBreedsPages = useSelector((state) =>
-    Math.ceil(state.breedsToFilter.length / 8)
+    Math.ceil(state.breedsToFilter.length / 8),
   );
 
   const nextPag = () => {
     if (breeds.length >= 8) {
       setCurrentPage(currentPage + 8);
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
   const prevPag = () => {
@@ -31,7 +31,7 @@ function Cards() {
     //   : setCurrentPage(currentPage);
     if (currentPage > 0) {
       setCurrentPage(currentPage - 8);
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       setCurrentPage(currentPage);
     }
@@ -56,7 +56,7 @@ function Cards() {
         <Footer />
       </>
     );
-  } else if (breeds[0] === "db empty") {
+  } else if (breeds[0] === 'db empty') {
     return (
       <>
         <h1>Base de datos vacia!</h1>
@@ -84,8 +84,8 @@ function Cards() {
             ◄
           </button>
           <span>
-            {" "}
-            {currentPage / 8 + 1} / {totalBreedsPages}{" "}
+            {' '}
+            {currentPage / 8 + 1} / {totalBreedsPages}{' '}
           </span>
           <button className={styles.btn} onClick={nextPag}>
             ►

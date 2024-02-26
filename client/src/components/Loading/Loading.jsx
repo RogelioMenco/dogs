@@ -1,5 +1,5 @@
-import styles from "./Loading.module.css";
-import loadingicon from "../../images/loading.gif";
+import styles from './Loading.module.css';
+import loadingicon from '../../images/loading.gif';
 
 function Loading() {
   return (

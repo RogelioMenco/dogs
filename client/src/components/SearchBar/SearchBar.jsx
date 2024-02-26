@@ -1,10 +1,9 @@
-import React from "react";
-import { useState } from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import styles from "./SearchBar.module.css";
-import sortimg from "./img/download.png";
-import filterimg from "./img/filter.png";
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import styles from './SearchBar.module.css';
+import sortimg from './img/download.png';
+import filterimg from './img/filter.png';
 
 function SearchBar({ weightAlpha, search, filterTemp, filterOrigin }) {
   const temperaments = useSelector((state) => state.temperaments);
@@ -19,27 +18,27 @@ function SearchBar({ weightAlpha, search, filterTemp, filterOrigin }) {
     filterOrigin(e.target.value);
   }
 
-  const [defaultValue, setDefaultValue] = useState("ORDER_ZA");
+  const [defaultValue, setDefaultValue] = useState('ORDER_ZA');
 
   function handleSwitch(e) {
-    if (e.target.value === "ORDER_AZ") {
-      weightAlpha("ORDER_AZ");
-      setDefaultValue("ORDER_ZA");
-    } else if (e.target.value === "ORDER_ZA") {
-      weightAlpha("ORDER_ZA");
-      setDefaultValue("ORDER_AZ");
+    if (e.target.value === 'ORDER_AZ') {
+      weightAlpha('ORDER_AZ');
+      setDefaultValue('ORDER_ZA');
+    } else if (e.target.value === 'ORDER_ZA') {
+      weightAlpha('ORDER_ZA');
+      setDefaultValue('ORDER_AZ');
     }
   }
 
-  const [defaultValue2, setDefaultValue2] = useState("WEIGHT_DESC");
+  const [defaultValue2, setDefaultValue2] = useState('WEIGHT_DESC');
 
   function handleSwitch2(e) {
-    if (e.target.value === "WEIGHT_ASC") {
-      weightAlpha("WEIGHT_ASC");
-      setDefaultValue2("WEIGHT_DESC");
-    } else if (e.target.value === "WEIGHT_DESC") {
-      weightAlpha("WEIGHT_DESC");
-      setDefaultValue2("WEIGHT_ASC");
+    if (e.target.value === 'WEIGHT_ASC') {
+      weightAlpha('WEIGHT_ASC');
+      setDefaultValue2('WEIGHT_DESC');
+    } else if (e.target.value === 'WEIGHT_DESC') {
+      weightAlpha('WEIGHT_DESC');
+      setDefaultValue2('WEIGHT_ASC');
     }
   }
 

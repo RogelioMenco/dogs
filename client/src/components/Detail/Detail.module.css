@@ -1,58 +1,72 @@
 .card {
-    width: 40vw;
-    height: 83vh;
+  width: 40vw;
+  height: 83vh;
+  margin: 10px auto;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: rgb(173, 165, 165);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  border-radius: 5px;
+  max-width: 38.5vw;
+  max-height: 550px;
+  width: auto;
+  height: auto;
+  box-shadow: rgba(61, 61, 61, 0.2) 0px 2px 8px 0px;
+  max-height: 520px;
+}
+.card h1 {
+  text-transform: capitalize;
+  margin: 10px 0;
+}
+.foot {
+  margin: 10px;
+  background-color: #ccc;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  box-shadow: rgba(61, 61, 61, 0.2) 0px 2px 8px 0px;
+  padding: 15px;
+  padding-bottom: 25px;
+}
+.foot p {
+  margin: 0;
+}
+.foot span {
+  font-weight: bold;
+  font-size: larger;
+}
+.imageContainer {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .card {
+    width: 90vw;
+    height: 80vh;
     margin: 10px auto;
     padding: 15px;
     border-radius: 5px;
     background-color: rgb(173, 165, 165);
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   }
-  
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 90vw;
+    height: 80vh;
+  }
   .card img {
-    border-radius: 5px;
-    max-width: 40vw;
-    max-height: 550px;
+    max-width: 85vw;
+    max-height: 520px;
     width: auto;
     height: auto;
-    box-shadow: rgba(61, 61, 61, 0.2) 0px 2px 8px 0px;
   }
-  .card h1 {
-    text-transform: capitalize;
-    margin: 10px 0;
-  }
-  .foot {
-    background-color: #ccc;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    box-shadow: rgba(61, 61, 61, 0.2) 0px 2px 8px 0px;
-  }
-  .foot span {
-    font-weight: bold;
-    font-size: larger;
-  }
-  
-  @media (max-width: 992px) {
-    .card {
-      width: 90vw;
-      height: 80vh;
-      margin: 10px auto;
-      padding: 15px;
-      border-radius: 5px;
-      background-color: rgb(173, 165, 165);
-      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .card {
-      width: 90vw;
-      height: 80vh;
-    }
-    .card img {
-      max-width: 65vw;
-      max-height: 550px;
-      width: auto;
-      height: auto;
-    }
-  }
-  
+}

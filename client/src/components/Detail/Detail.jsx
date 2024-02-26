@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { clearDetail, searchBreedDetail } from "../../actions";
-import Header from "../Header/Header.jsx";
-import Footer from "../Footer/Footer.jsx";
-import Loading from "../Loading/Loading";
-import styles from "./Detail.module.css";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { clearDetail, searchBreedDetail } from '../../actions';
+import Footer from '../Footer/Footer.jsx';
+import Header from '../Header/Header.jsx';
+import Loading from '../Loading/Loading';
+import styles from './Detail.module.css';
 
 function Detail() {
   const dispatch = useDispatch();
@@ -32,7 +32,9 @@ function Detail() {
         <Header />
         <div className={styles.card}>
           <h1>{breedDetail.name}</h1>
-          <img src={breedDetail.image} alt={breedDetail.name} width="700" />
+          <div className={styles.imageContainer}>
+            <img src={breedDetail.image} alt={breedDetail.name} width="700" />
+          </div>
           <div className={styles.foot}>
             <p>
               <span>Altura:</span> {breedDetail.height} cm

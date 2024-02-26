@@ -1,26 +1,26 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addBreed } from "../../actions";
-import Footer from "../Footer/Footer";
-import Header from "../Header/Header.jsx";
-import styles from "./Form.module.css";
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addBreed } from '../../actions';
+import Header from '../Header/Header.jsx';
+import styles from './Form.module.css';
 
 export default function Form() {
   const temperaments = useSelector((state) => state.temperaments);
   const dispatch = useDispatch();
   const [input, setInput] = useState({
-    name: "",
-    image: "",
-    minHeight: "",
-    maxHeight: "",
-    minWeight: "",
-    maxWeight: "",
-    minLifeSpan: "",
-    maxLifeSpan: "",
+    name: '',
+    image: '',
+    minHeight: '',
+    maxHeight: '',
+    minWeight: '',
+    maxWeight: '',
+    minLifeSpan: '',
+    maxLifeSpan: '',
     temperaments: [],
     created: false,
   });
   const [errors, setErrors] = useState({});
+  const [selectValue, setSelectValue] = useState('');
 
   // Handler functions
   function handleTemps(e) {
@@ -30,6 +30,7 @@ export default function Form() {
         ...input,
         [e.target.name]: concat,
       });
+      setSelectValue('');
     }
   }
   function remove(e) {
@@ -49,50 +50,64 @@ export default function Form() {
       validation({
         ...input,
         [e.target.name]: e.target.value,
-      })
+      }),
     );
   }
   function validation(input) {
     var errors = {};
     // Name
     var namePattern = /^[a-z ]+$/g;
-    if (!input.name) errors.name = "Name can't be blank";
+    if (!input.name) errors.name = 'El nombre no puede estar vacio!';
     else if (!namePattern.test(input.name)) {
-      errors.name = "Only lowercase letters allowed";
+      errors.name = 'Para el nombre se deben usar unicamente minusculas';
     }
+
     // Image
     var imgPattern = /(https?:\/\/.*\.(?:png|jpg))/i;
-    if (!input.image) errors.image = "Image link can't be blank";
+    if (!input.image)
+      errors.image = 'La imagen de la raza no puede estar vacia';
     else if (!imgPattern.test(input.image))
-      errors.image = "Must be a image link";
-    // Height
-    if (!input.minHeight) errors.minHeight = "Min Height can't be blank";
-    else if (input.minHeight <= 0) errors.minHeight = "Must be above zero";
+      errors.image = 'El link no es valido!';
+
+    // Height (Altura)
+    if (!input.minHeight) errors.minHeight = 'Debe existir una altura minima';
+    else if (input.minHeight <= 0)
+      errors.minHeight = 'La altura minima debe ser mas que 0';
     else if (input.maxHeight) {
-      if (parseInt(input.minHeight) > parseInt(input.maxHeight))
-        errors.minHeight = "Min Height can't be greater than Max Height";
+      if (
+        input.maxHeight &&
+        parseInt(input.minHeight) > parseInt(input.maxHeight)
+      )
+        errors.minHeight = 'La altura minima no debe ser mayor al maximo';
+      else if (input.maxHeight <= 0)
+        errors.maxHeight = 'La altura maxima debe ser mas que 0';
     }
-    if (!input.maxHeight) errors.maxHeight = "Max Height can't be blank";
-    else if (input.maxHeight <= 0) errors.maxHeight = "Must be above zero";
-    // Weight
-    if (!input.minWeight) errors.minWeight = "Min Weight can't be blank";
-    else if (input.minWeight <= 0) errors.minWeight = "Must be above zero";
+
+    // Weight (Peso)
+    if (!input.minWeight) errors.minWeight = 'Debe existir un peso minimo';
+    else if (input.minWeight <= 0)
+      errors.minWeight = 'El peso minimo debe ser mas que 0';
     else if (input.maxWeight) {
-      if (parseInt(input.minWeight) > parseInt(input.maxWeight))
-        errors.minWeight = "Min Weight can't be greater than Max Weight";
+      if (
+        input.maxWeight &&
+        parseInt(input.minWeight) > parseInt(input.maxWeight)
+      )
+        errors.minWeight = 'El peso minimo no debe ser mayor al maximo';
+      else if (input.maxWeight <= 0)
+        errors.maxWeight = 'El peso maximo debe ser mas que 0';
     }
-    if (!input.maxWeight) errors.maxWeight = "Max Weight can't be blank";
-    else if (input.maxWeight <= 0) errors.maxWeight = "Must be above zero";
-    // Life Span
-    if (!input.minLifeSpan) errors.minLifeSpan = "Min LifeSpan can't be blank";
-    else if (input.minLifeSpan <= 0) errors.minLifeSpan = "Must be above zero";
+
+    // Life Span (Esperanza de vida)
+    if (!input.minLifeSpan)
+      errors.minLifeSpan = 'La esperanza de vida no puede estar vacia';
+    else if (input.minLifeSpan <= 0) errors.minLifeSpan = 'Debe ser mayor a 0';
     else if (input.maxLifeSpan) {
       if (parseInt(input.minLifemaxLifeSpan) > parseInt(input.maxLifeSpan))
         errors.minLifeSpan =
-          "Min Life Span can't be greater than Max Life Span";
+          'La esperanza de vida minima no puede ser mayor a la maxima';
+      else if (input.maxLifeSpan <= 0)
+        errors.maxLifeSpan = 'Debe ser mayor a 0';
     }
-    if (!input.maxLifeSpan) errors.maxLifeSpan = "Max LifeSpan can't be blank";
-    else if (input.maxLifeSpan <= 0) errors.maxLifeSpan = "Must be above zero";
     return errors;
   }
   function handleSubmit(e) {
@@ -109,19 +124,19 @@ export default function Form() {
 
       dispatch(addBreed(dogToDispatch));
       setInput({
-        name: "",
-        image: "",
-        minHeight: "",
-        maxHeight: "",
-        minWeight: "",
-        maxWeight: "",
-        minLifeSpan: "",
-        maxLifeSpan: "",
+        name: '',
+        image: '',
+        minHeight: '',
+        maxHeight: '',
+        minWeight: '',
+        maxWeight: '',
+        minLifeSpan: '',
+        maxLifeSpan: '',
         temperaments: [],
         created: true,
       });
     } else {
-      alert("You cannot create an empty breed!");
+      alert('La informacion de la raza no puede estar vacia!');
     }
   }
 
@@ -129,12 +144,13 @@ export default function Form() {
     <>
       <Header />
       <form className={styles.card} onSubmit={handleSubmit}>
+        <h1>Estas creando una raza</h1>
         <div className={styles.inputdiv}>
           <input
             onChange={handleInputChange}
             name="name"
             type="text"
-            placeholder="Name"
+            placeholder="Nombre"
             value={input.name}
           />
           {errors.name && <span>{errors.name}</span>}
@@ -144,7 +160,7 @@ export default function Form() {
             onChange={handleInputChange}
             name="image"
             type="text"
-            placeholder="Image"
+            placeholder="Imagen"
             value={input.image}
           />
           {errors.image && <span>{errors.image}</span>}
@@ -155,14 +171,16 @@ export default function Form() {
               onChange={handleInputChange}
               name="minHeight"
               type="number"
-              placeholder="Min Height"
+              min={0}
+              placeholder="Altura Min."
               value={input.minHeight}
             />
             <input
               onChange={handleInputChange}
               name="maxHeight"
               type="number"
-              placeholder="Max Height"
+              min={0}
+              placeholder="Altura Max."
               value={input.maxHeight}
             />
           </div>
@@ -176,13 +194,17 @@ export default function Form() {
               onChange={handleInputChange}
               name="minWeight"
               type="number"
-              placeholder="Min Weight"
+              min={0}
+              placeholder="Peso Min."
+              value={input.minWeight}
             />
             <input
               onChange={handleInputChange}
               name="maxWeight"
               type="number"
-              placeholder="Max Weight"
+              min={0}
+              placeholder="Peso Max."
+              value={input.maxWeight}
             />
           </div>
           {errors.minWeight && <span>{errors.minWeight}</span>}
@@ -195,13 +217,17 @@ export default function Form() {
               onChange={handleInputChange}
               name="minLifeSpan"
               type="number"
-              placeholder="Min Life Span"
+              min={0}
+              placeholder="Min. Esperanza de vida"
+              value={input.minLifeSpan}
             />
             <input
               onChange={handleInputChange}
               name="maxLifeSpan"
               type="number"
-              placeholder="Max Life Span"
+              min={0}
+              placeholder="Max. Esperanza de vida"
+              value={input.maxLifeSpan}
             />
           </div>
           {errors.minLifeSpan && <span>{errors.minLifeSpan}</span>}
@@ -214,8 +240,9 @@ export default function Form() {
           onChange={handleTemps}
           name="temperaments"
           id="temperaments"
+          value={selectValue}
         >
-          <option value="">-Choose one or more-</option>
+          <option value="">- Elige uno o varios temperamentos -</option>
           {temperaments.map((e) => (
             <option value={e.name} key={e.id}>
               {e.name}
@@ -235,21 +262,22 @@ export default function Form() {
           </ul>
         </div>
 
+        {input.created ? (
+          <div className={styles.success}>
+            <span>Raza creada correctamente!</span>
+          </div>
+        ) : null}
+
         {Object.keys(errors).length === 0 ? (
-          <button className={styles.button}>Create new breed!</button>
+          <button className={styles.button}>Crear raza!</button>
         ) : (
           <button
-            disabled={Object.keys(errors).length === 0 ? "" : true}
+            disabled={Object.keys(errors).length === 0 ? '' : true}
             className={styles.buttonDisabled}
           >
             &#128711;
           </button>
         )}
-        {input.created ? (
-          <div className={styles.success}>
-            <span>Breed created successfully!</span>
-          </div>
-        ) : null}
       </form>
       {/* <Footer /> */}
     </>

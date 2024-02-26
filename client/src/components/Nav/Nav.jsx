@@ -1,13 +1,12 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import SearchBar from "../SearchBar/SearchBar";
+import { useDispatch } from 'react-redux';
+import SearchBar from '../SearchBar/SearchBar';
 import {
   weightAndAlpha,
   searchBreed,
   filterTemp,
   filterOrigin,
-} from "../../actions";
-import styles from "./Nav.module.css";
+} from '../../actions';
+import styles from './Nav.module.css';
 
 function Nav() {
   const dispatch = useDispatch();
@@ -16,7 +15,7 @@ function Nav() {
     dispatch(weightAndAlpha(option));
   };
   const search = function (value) {
-    !value ? dispatch(searchBreed("ALL")) : dispatch(searchBreed(value));
+    !value ? dispatch(searchBreed('ALL')) : dispatch(searchBreed(value));
   };
   const filterTempAction = function (option) {
     dispatch(filterTemp(option));

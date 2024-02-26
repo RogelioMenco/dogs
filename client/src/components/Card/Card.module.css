@@ -1,66 +1,65 @@
 .card {
-    width: 23vw;
-    height: 37vh;
-    margin: 10px;
-    border-radius: 5px;
-    background-color: #ccc;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    overflow: auto;
-    transition: background-color 0.5s;
-  }
-  .card:hover {
-    background-color: rgb(173, 165, 165);
+  width: 23vw;
+  height: 37vh;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #ccc;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  overflow: auto;
+  transition: background-color 0.5s;
+}
+.card:hover {
+  background-color: rgb(173, 165, 165);
+}
+.card img {
+  max-height: 12vw;
+  height: auto;
+  border-radius: 5px;
+}
+.title {
+  display: block;
+  font-weight: bold;
+  padding: 5px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+.foot {
+  padding: 5px 15px;
+}
+.foot p {
+  margin: 0 5px;
+  display: block;
+  padding: 0;
+}
+.foot span {
+  font-weight: bold;
+}
+
+.btnInfo {
+  border: none;
+  border-radius: 5px;
+  height: 30px;
+  width: 100px;
+  margin-bottom: 3px;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+@media (max-width: 992px) {
+  .card {
+    height: 400px;
+    width: 70vw;
   }
   .card img {
-    max-height: 12vw;
+    max-height: 30vw;
     height: auto;
-    border-radius: 5px;
   }
-  .title {
-    display: block;
-    font-weight: bold;
-    padding: 5px;
-    text-transform: capitalize;
-    text-decoration: none;
+}
+@media (max-width: 768px) {
+  .card {
+    height: 290px;
+    width: 95vw;
   }
-  .foot {
-    padding: 5px 15px;
-  }
-  .foot p {
-    margin: 0 5px;
-    display: block;
-    padding: 0;
-  }
-  .foot span {
-    font-weight: bold;
-  }
-  
-  .btnInfo {
-    border: none;
-    border-radius: 5px;
-    height: 30px;
-    width: 100px;
-    margin-bottom: 3px;
-  }
-  a {
-    text-decoration: none;
-    color: black;
-  }
-  
-  @media (max-width: 992px) {
-    .card {
-      height: 400px;
-      width: 70vw;
-    }
-    .card img {
-      max-height: 30vw;
-      height: auto;
-    }
-  }
-  @media (max-width: 768px) {
-    .card {
-      height: 290px;
-      width: 95vw;
-    }
-  }
-  
+}
