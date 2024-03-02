@@ -6,6 +6,8 @@ const routes = require('./routes/index.js');
 
 require('./db.js');
 
+const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS ?? '';
+
 const server = express();
 
 server.name = 'API';
@@ -15,7 +17,11 @@ server.use(bodyParser.json({ limit: '50mb' }));
 server.use(cookieParser());
 server.use(morgan('dev'));
 server.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
+  const allowedOrigins = ALLOWED_ORIGINS.split(',');
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
   res.header('Access-Control-Allow-Credentials', 'true');
   res.header(
     'Access-Control-Allow-Headers',

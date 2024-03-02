@@ -15,7 +15,8 @@
     "start:client": "turbo --filter=@rogelio/client start",
     "start:api": "turbo --filter=@rogelio/api start",
     "format": "turbo format",
-    "lint": "turbo lint"
+    "lint": "turbo lint",
+    "deploy": "turbo --filter @rogelio/client deploy"
   },
   "engines": {
     "node": ">=18"
