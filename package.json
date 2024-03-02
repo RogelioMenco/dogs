@@ -1,0 +1,33 @@
+{
+  "name": "dogs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:RogelioMenco/dogs.git",
+  "author": "Rogelio Menco <rogeliomenco4@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "api",
+    "client"
+  ],
+  "scripts": {
+    "start": "turbo start",
+    "start:client": "turbo --filter=@rogelio/client start",
+    "start:api": "turbo --filter=@rogelio/api start",
+    "format": "turbo format",
+    "lint": "turbo lint"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "turbo": "^1.12.4"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "prettier": "^3.2.5"
+  }
+}

@@ -1,9 +1,8 @@
 {
-  "name": "api",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@rogelio/api",
+  "version": "0.0.0",
+  "description": "API",
   "main": "index.js",
-  "license": "ISC",
   "scripts": {
     "start": "node index.js",
     "test": "mocha -w ./tests/**/*.spec.js",
@@ -29,11 +28,6 @@
     "mocha": "^8.2.1",
     "nodemon": "^2.0.6",
     "supertest": "^6.0.1",
-    "supertest-session": "^4.1.0",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^5.1.3",
-    "prettier": "^3.2.5"
+    "supertest-session": "^4.1.0"
   }
 }
