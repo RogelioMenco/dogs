@@ -8,6 +8,8 @@
       "dependsOn": ["format"]
     },
     "format": {},
-    "deploy": {}
+    "deploy": {
+      "cache": false
+    }
   }
 }
