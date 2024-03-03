@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/dogs/static/css/main.922b3bd5.css",
-    "main.js": "/dogs/static/js/main.47bdba99.js",
+    "main.js": "/dogs/static/js/main.b97ea992.js",
     "static/media/sad.png": "/dogs/static/media/sad.4161dec16cc861043687.png",
     "static/media/loading.gif": "/dogs/static/media/loading.918e8310922dad22d6a7.gif",
     "index.html": "/dogs/index.html",
     "main.922b3bd5.css.map": "/dogs/static/css/main.922b3bd5.css.map",
-    "main.47bdba99.js.map": "/dogs/static/js/main.47bdba99.js.map"
+    "main.b97ea992.js.map": "/dogs/static/js/main.b97ea992.js.map"
   },
   "entrypoints": [
     "static/css/main.922b3bd5.css",
-    "static/js/main.47bdba99.js"
+    "static/js/main.b97ea992.js"
   ]
 }
