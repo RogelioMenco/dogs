@@ -1,15 +1,14 @@
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import Home from './components/Home/Home.jsx';
-import LandingPage from './components/LandingPage/LandingPage.jsx';
 import Detail from './components/Detail/Detail.jsx';
 import Form from './components/Form/Form';
-
-const basePath = process.env.PUBLIC_URL ?? '/';
+import Home from './components/Home/Home.jsx';
+import LandingPage from './components/LandingPage/LandingPage.jsx';
 
 function App() {
   return (
-    <BrowserRouter basename={basePath}>
+    // Para Github Pages necesitamos HashRouter de lo contrario podemos usar BrowserRouter
+    <HashRouter>
       <div className="App">
         <Routes>
           <Route path="/" element={<LandingPage />} />
@@ -18,7 +17,7 @@ function App() {
           <Route path="/form" element={<Form />} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 export default App;
